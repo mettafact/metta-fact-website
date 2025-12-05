@@ -1,0 +1,48 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="200" height="200" fill="#000000"/>
+  
+  <g transform="rotate(-45 100 100)">
+    <ellipse cx="100" cy="100" rx="50" ry="28"
+          fill="none" 
+          stroke="#00ff00" 
+          stroke-width="8" 
+          stroke-linecap="round"
+          opacity="0.25"
+          filter="url(#glow)"
+          stroke-dasharray="2,4"/>
+    
+    <ellipse cx="100" cy="100" rx="50" ry="28"
+          fill="none" 
+          stroke="#00ff00" 
+          stroke-width="3" 
+          stroke-linecap="round"
+          opacity="0.5"
+          filter="url(#glow)"/>
+  </g>
+  
+  <text x="100" y="115" font-family="'Courier New', monospace" font-size="72" font-weight="bold" fill="#00ff00" text-anchor="middle" filter="url(#glow)">mf</text>
+  
+  <g transform="rotate(-45 100 100)">
+    <g filter="url(#glow)">
+      <animateMotion 
+        dur="8s" 
+        repeatCount="indefinite"
+        rotate="auto"
+        path="M 150,100 A 50,28 0 0,0 50,100 A 50,28 0 0,0 150,100">
+      </animateMotion>
+      <g transform="rotate(45)">
+        <text font-size="20" x="0" y="0" dominant-baseline="middle" text-anchor="middle" style="filter: grayscale(100%) brightness(1.2) sepia(100%) hue-rotate(60deg) saturate(5);">🚀</text>
+      </g>
+    </g>
+  </g>
+</svg>

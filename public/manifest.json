@@ -1,0 +1,20 @@
+{
+  "short_name": "Metta-Fact",
+  "name": "Metta-Fact.org",
+  "icons": [
+    {
+      "src": "metta-fact-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "metta-fact-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}
