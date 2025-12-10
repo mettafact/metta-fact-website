@@ -94,6 +94,18 @@ export default function MetaFactSubmission() {
         .blink {
           animation: blink 1s infinite;
         }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .spinning-head {
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          animation: spin 2s linear infinite;
+          border-radius: 50%;
+          filter: brightness(1.2) contrast(1.1);
+        }
         .scanlines {
           background: linear-gradient(
             to bottom,
@@ -146,11 +158,11 @@ export default function MetaFactSubmission() {
         <div className="text-center mb-12">
           <div className="retro-border rounded-lg p-6 mb-6 bg-black">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="text-xl blink">█</span>
+              <img src="/metta-head.png" alt="Metta" className="spinning-head" />
               <h1 className="text-4xl md:text-6xl font-bold tracking-wider crt">
                 METTA-FACT.ORG
               </h1>
-              <span className="text-xl blink">█</span>
+              <img src="/metta-head.png" alt="Metta" className="spinning-head" />
             </div>
             <div className="h-px bg-green-400 my-4 opacity-50"></div>
             <p className="text-lg md:text-xl crt italic min-h-[32px]">
