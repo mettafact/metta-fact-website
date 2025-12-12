@@ -100,11 +100,11 @@ export default function MetaFactSubmission() {
         }
         .spinning-head {
           display: inline-block;
-          width: 40px;
-          height: 40px;
-          animation: spin 2s linear infinite;
+          width: 50px;
+          height: 50px;
+          animation: spin 5s steps(12) infinite;
           border-radius: 50%;
-          filter: brightness(1.2) contrast(1.1);
+          filter: brightness(1.3) contrast(1.1) drop-shadow(0 0 3px rgba(74, 222, 128, 0.4));
         }
         .scanlines {
           background: linear-gradient(
@@ -157,12 +157,12 @@ export default function MetaFactSubmission() {
       <div className="container mx-auto px-4 py-16 max-w-4xl relative">
         <div className="text-center mb-12">
           <div className="retro-border rounded-lg p-6 mb-6 bg-black">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <img src="/metta-head.png" alt="Metta" className="spinning-head" />
+            <div className="flex items-center justify-center gap-6 mb-2">
+              <img src="/metta-head-green.png" alt="Metta" className="spinning-head" />
               <h1 className="text-4xl md:text-6xl font-bold tracking-wider crt">
                 METTA-FACT.ORG
               </h1>
-              <img src="/metta-head.png" alt="Metta" className="spinning-head" />
+              <img src="/metta-head-green.png" alt="Metta" className="spinning-head" />
             </div>
             <div className="h-px bg-green-400 my-4 opacity-50"></div>
             <p className="text-lg md:text-xl crt italic min-h-[32px]">
