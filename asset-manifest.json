@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/metta-fact-website/static/css/main.75d9b475.css",
-    "main.js": "/metta-fact-website/static/js/main.83970941.js",
-    "static/js/453.f7481823.chunk.js": "/metta-fact-website/static/js/453.f7481823.chunk.js",
-    "index.html": "/metta-fact-website/index.html",
-    "main.75d9b475.css.map": "/metta-fact-website/static/css/main.75d9b475.css.map",
-    "main.83970941.js.map": "/metta-fact-website/static/js/main.83970941.js.map",
-    "453.f7481823.chunk.js.map": "/metta-fact-website/static/js/453.f7481823.chunk.js.map"
+    "main.css": "/static/css/main.75d9b475.css",
+    "main.js": "/static/js/main.b0724733.js",
+    "static/js/453.f7481823.chunk.js": "/static/js/453.f7481823.chunk.js",
+    "index.html": "/index.html",
+    "main.75d9b475.css.map": "/static/css/main.75d9b475.css.map",
+    "main.b0724733.js.map": "/static/js/main.b0724733.js.map",
+    "453.f7481823.chunk.js.map": "/static/js/453.f7481823.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.75d9b475.css",
-    "static/js/main.83970941.js"
+    "static/js/main.b0724733.js"
   ]
 }
