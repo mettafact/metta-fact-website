@@ -15,11 +15,11 @@ export default function MetaFactSubmission() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setScanlineComplete(true);
-    }, 10000);
+    }, 15000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Typewriter effect for tagline
+  // Typewriter effect for tagline - starts after header reveal (6 seconds)
   useEffect(() => {
     let currentIndex = 0;
     let typingInterval;
@@ -28,7 +28,7 @@ export default function MetaFactSubmission() {
     const typeText = () => {
       currentIndex = 0;
       setTypewriterText('');
-      
+
       typingInterval = setInterval(() => {
         if (currentIndex <= fullText.length) {
           setTypewriterText(fullText.slice(0, currentIndex));
@@ -42,9 +42,13 @@ export default function MetaFactSubmission() {
       }, 150);
     };
 
-    typeText();
+    // Wait 6 seconds (40% of 15s animation) before starting typewriter
+    const initialDelay = setTimeout(() => {
+      typeText();
+    }, 6000);
 
     return () => {
+      clearTimeout(initialDelay);
       clearInterval(typingInterval);
       clearTimeout(resetTimeout);
     };
@@ -125,15 +129,18 @@ export default function MetaFactSubmission() {
           pointer-events: none;
         }
         @keyframes scanlineReveal {
-          from {
+          0% {
             clip-path: inset(0 0 100% 0);
           }
-          to {
+          40% {
+            clip-path: inset(0 0 85% 0);
+          }
+          100% {
             clip-path: inset(0 0 0 0);
           }
         }
         .scanline-reveal {
-          animation: scanlineReveal 10s ease-out forwards;
+          animation: scanlineReveal 15s linear forwards;
         }
         .crt {
           text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
