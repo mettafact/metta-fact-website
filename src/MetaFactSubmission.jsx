@@ -7,8 +7,17 @@ export default function MetaFactSubmission() {
   const [error, setError] = useState(null);
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [typewriterText, setTypewriterText] = useState('');
+  const [scanlineComplete, setScanlineComplete] = useState(false);
 
   const fullText = '"In the pulp with my tinky winkies!"';
+
+  // Scanline reveal effect on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setScanlineComplete(true);
+    }, 10000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Typewriter effect for tagline
   useEffect(() => {
@@ -115,6 +124,17 @@ export default function MetaFactSubmission() {
           background-size: 100% 4px;
           pointer-events: none;
         }
+        @keyframes scanlineReveal {
+          from {
+            clip-path: inset(0 0 100% 0);
+          }
+          to {
+            clip-path: inset(0 0 0 0);
+          }
+        }
+        .scanline-reveal {
+          animation: scanlineReveal 10s ease-out forwards;
+        }
         .crt {
           text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
         }
@@ -154,7 +174,7 @@ export default function MetaFactSubmission() {
 
       <div className="fixed inset-0 scanlines pointer-events-none z-50"></div>
 
-      <div className="container mx-auto px-4 py-16 max-w-4xl relative">
+      <div className="container mx-auto px-4 py-16 max-w-4xl relative scanline-reveal">
         <div className="text-center mb-12">
           <div className="retro-border rounded-lg p-6 mb-6 bg-black">
             <div className="flex items-center justify-center gap-6 mb-2">
