@@ -210,9 +210,47 @@
     border-radius: 2px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     nav.toc ol { columns: 1; -webkit-columns: 1; }
-    table { font-size: 0.8rem; }
+
+    /* Stack tables into labeled cards instead of scrolling sideways */
+    .table-wrap {
+      overflow-x: visible;
+      border: none;
+    }
+    table {
+      display: block;
+      width: 100%;
+      min-width: 0;
+    }
+    thead { display: none; }
+    tbody, tr, td { display: block; width: 100%; }
+    tr {
+      border: 1px solid var(--green);
+      border-radius: 6px;
+      margin-bottom: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(0,255,0,0.02);
+    }
+    tr:last-child { margin-bottom: 0; }
+    tr:hover td { background: transparent; }
+    td {
+      border: none;
+      border-bottom: 1px dashed rgba(0,255,0,0.2);
+      padding: 0.45rem 0;
+    }
+    td:last-child { border-bottom: none; }
+    td::before {
+      content: attr(data-label);
+      display: block;
+      color: var(--green);
+      font-weight: bold;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.15rem;
+      opacity: 0.85;
+    }
   }
 </style>
 </head>
@@ -264,21 +302,21 @@
       <table>
         <thead><tr><th>Year</th><th>Champion</th><th>The Story</th></tr></thead>
         <tbody>
-          <tr><td>2011</td><td>Walter Wofford (wofford523)</td><td>The first champion. <em>Effing Walter.</em></td></tr>
-          <tr><td>2012</td><td>Brigdon (airbrigg)</td><td>Title #1</td></tr>
-          <tr><td>2013</td><td>Preston (ppuryear1)</td><td>His one shining moment. We miss you P-Dog.</td></tr>
-          <tr><td>2014</td><td>Brigdon (airbrigg)</td><td>Title #2</td></tr>
-          <tr><td>2015</td><td>Brigdon (airbrigg)</td><td>Title #3, from a 7-6 seed.</td></tr>
-          <tr><td>2016</td><td>Stephen (ThankyouBergod)</td><td>Thank you, Bergod.</td></tr>
-          <tr><td>2017</td><td>Brigdon (airbrigg)</td><td>Title #4</td></tr>
-          <tr><td>2018</td><td>William (WhenItRainsItPoes)</td><td>11-2, wire to wire.</td></tr>
-          <tr><td>2019</td><td>Brigdon (airbrigg)</td><td>Title #5, first year on Sleeper.</td></tr>
-          <tr><td>2020</td><td>William (WhenItRainsItPoes)</td><td>Title #2</td></tr>
-          <tr><td>2021</td><td>Robert (rdm5223)</td><td>11-2 and finished the job.</td></tr>
-          <tr><td>2022</td><td>Zac (nastyboyart)</td><td>The 6-8 Heist.</td></tr>
-          <tr><td>2023</td><td>Chris (Lunskeet)</td><td>TTP only took 13 years.</td></tr>
-          <tr><td>2024</td><td>Michael (goopunch)</td><td>GooHAsSwINeFLu.</td></tr>
-          <tr><td>2025</td><td>Anthony (PMOintensehbplant)</td><td>Rookie season. Drafted 3 TEs. Rude.</td></tr>
+          <tr><td data-label="Year">2011</td><td data-label="Champion">Walter Wofford (wofford523)</td><td data-label="The Story">The first champion. <em>Effing Walter.</em></td></tr>
+          <tr><td data-label="Year">2012</td><td data-label="Champion">Brigdon (airbrigg)</td><td data-label="The Story">Title #1</td></tr>
+          <tr><td data-label="Year">2013</td><td data-label="Champion">Preston (ppuryear1)</td><td data-label="The Story">His one shining moment. We miss you P-Dog.</td></tr>
+          <tr><td data-label="Year">2014</td><td data-label="Champion">Brigdon (airbrigg)</td><td data-label="The Story">Title #2</td></tr>
+          <tr><td data-label="Year">2015</td><td data-label="Champion">Brigdon (airbrigg)</td><td data-label="The Story">Title #3, from a 7-6 seed.</td></tr>
+          <tr><td data-label="Year">2016</td><td data-label="Champion">Stephen (ThankyouBergod)</td><td data-label="The Story">Thank you, Bergod.</td></tr>
+          <tr><td data-label="Year">2017</td><td data-label="Champion">Brigdon (airbrigg)</td><td data-label="The Story">Title #4</td></tr>
+          <tr><td data-label="Year">2018</td><td data-label="Champion">William (WhenItRainsItPoes)</td><td data-label="The Story">11-2, wire to wire.</td></tr>
+          <tr><td data-label="Year">2019</td><td data-label="Champion">Brigdon (airbrigg)</td><td data-label="The Story">Title #5, first year on Sleeper.</td></tr>
+          <tr><td data-label="Year">2020</td><td data-label="Champion">William (WhenItRainsItPoes)</td><td data-label="The Story">Title #2</td></tr>
+          <tr><td data-label="Year">2021</td><td data-label="Champion">Robert (rdm5223)</td><td data-label="The Story">11-2 and finished the job.</td></tr>
+          <tr><td data-label="Year">2022</td><td data-label="Champion">Zac (nastyboyart)</td><td data-label="The Story">The 6-8 Heist.</td></tr>
+          <tr><td data-label="Year">2023</td><td data-label="Champion">Chris (Lunskeet)</td><td data-label="The Story">TTP only took 13 years.</td></tr>
+          <tr><td data-label="Year">2024</td><td data-label="Champion">Michael (goopunch)</td><td data-label="The Story">GooHAsSwINeFLu.</td></tr>
+          <tr><td data-label="Year">2025</td><td data-label="Champion">Anthony (PMOintensehbplant)</td><td data-label="The Story">Rookie season. Drafted 3 TEs. Rude.</td></tr>
         </tbody>
       </table>
     </div>
@@ -317,11 +355,11 @@
       <table>
         <thead><tr><th>Category</th><th>Share</th></tr></thead>
         <tbody>
-          <tr><td>Champion</td><td>40%</td></tr>
-          <tr><td>Runner-up</td><td>25%</td></tr>
-          <tr><td>Third place</td><td>14%</td></tr>
-          <tr><td>Highest score, each regular-season week (14 weeks)</td><td>14% total — 1% per week</td></tr>
-          <tr><td>Most points, full regular season</td><td>7%</td></tr>
+          <tr><td data-label="Category">Champion</td><td data-label="Share">40%</td></tr>
+          <tr><td data-label="Category">Runner-up</td><td data-label="Share">25%</td></tr>
+          <tr><td data-label="Category">Third place</td><td data-label="Share">14%</td></tr>
+          <tr><td data-label="Category">Highest score, each regular-season week (14 weeks)</td><td data-label="Share">14% total — 1% per week</td></tr>
+          <tr><td data-label="Category">Most points, full regular season</td><td data-label="Share">7%</td></tr>
         </tbody>
       </table>
     </div>
@@ -442,18 +480,18 @@
       <table>
         <thead><tr><th>Real name</th><th>Handle</th><th>Formerly known as</th><th>Since</th><th>Seasons</th><th>Titles</th></tr></thead>
         <tbody>
-          <tr><td>Brigdon Foster 🕶️</td><td>airbrigg</td><td>—</td><td>2011</td><td>15</td><td><strong>5</strong> (2012, '14, '15, '17, '19)</td></tr>
-          <tr><td>Michael Ranon 🗳️</td><td>goopunch</td><td>therealgoopunch</td><td>2011</td><td>15</td><td>1 (2024)</td></tr>
-          <tr><td>Chris Lunskis</td><td>Lunskeet</td><td>—</td><td>2011</td><td>15</td><td>1 (2023)</td></tr>
-          <tr><td>Andrew Rametta 👑</td><td>Hail_the_King</td><td>Tbmeetsatl, TheChessMaster, FullTilt, MettaVerse</td><td>2011</td><td>15</td><td>0</td></tr>
-          <tr><td>Robert Miller</td><td>rdm5223</td><td>—</td><td>2012</td><td>14</td><td>1 (2021)</td></tr>
-          <tr><td>Jack Robbins</td><td>jrob121286</td><td>—</td><td>2013</td><td>1</td><td>0 — back after a 12-year sabbatical</td></tr>
-          <tr><td>William Poe</td><td>WhenItRainsItPoes</td><td>bleepo7</td><td>2014</td><td>12</td><td>2 (2018, 2020)</td></tr>
-          <tr><td>Stephen Nuccio</td><td>ThankyouBergod</td><td>stucci1986903</td><td>2015</td><td>11</td><td>1 (2016)</td></tr>
-          <tr><td>Erin Fitzpatrick</td><td>FitzinYa17</td><td>ebfitz04</td><td>2016</td><td>10</td><td>0</td></tr>
-          <tr><td>Kyle Fitzpatrick</td><td>Kfitz37</td><td>kfitty10</td><td>2017</td><td>9</td><td>0</td></tr>
-          <tr><td>Zac Burke</td><td>nastyboyart</td><td>—</td><td>2022</td><td>4</td><td>1 (2022)</td></tr>
-          <tr><td>Anthony Palermo</td><td>PMOintensehbplant</td><td>—</td><td>2025</td><td>1</td><td>1 (2025)</td></tr>
+          <tr><td data-label="Real name">Brigdon Foster 🕶️</td><td data-label="Handle">airbrigg</td><td data-label="Formerly known as">—</td><td data-label="Since">2011</td><td data-label="Seasons">15</td><td data-label="Titles"><strong>5</strong> (2012, '14, '15, '17, '19)</td></tr>
+          <tr><td data-label="Real name">Michael Ranon 🗳️</td><td data-label="Handle">goopunch</td><td data-label="Formerly known as">therealgoopunch</td><td data-label="Since">2011</td><td data-label="Seasons">15</td><td data-label="Titles">1 (2024)</td></tr>
+          <tr><td data-label="Real name">Chris Lunskis</td><td data-label="Handle">Lunskeet</td><td data-label="Formerly known as">—</td><td data-label="Since">2011</td><td data-label="Seasons">15</td><td data-label="Titles">1 (2023)</td></tr>
+          <tr><td data-label="Real name">Andrew Rametta 👑</td><td data-label="Handle">Hail_the_King</td><td data-label="Formerly known as">Tbmeetsatl, TheChessMaster, FullTilt, MettaVerse</td><td data-label="Since">2011</td><td data-label="Seasons">15</td><td data-label="Titles">0</td></tr>
+          <tr><td data-label="Real name">Robert Miller</td><td data-label="Handle">rdm5223</td><td data-label="Formerly known as">—</td><td data-label="Since">2012</td><td data-label="Seasons">14</td><td data-label="Titles">1 (2021)</td></tr>
+          <tr><td data-label="Real name">Jack Robbins</td><td data-label="Handle">jrob121286</td><td data-label="Formerly known as">—</td><td data-label="Since">2013</td><td data-label="Seasons">1</td><td data-label="Titles">0 — back after a 12-year sabbatical</td></tr>
+          <tr><td data-label="Real name">William Poe</td><td data-label="Handle">WhenItRainsItPoes</td><td data-label="Formerly known as">bleepo7</td><td data-label="Since">2014</td><td data-label="Seasons">12</td><td data-label="Titles">2 (2018, 2020)</td></tr>
+          <tr><td data-label="Real name">Stephen Nuccio</td><td data-label="Handle">ThankyouBergod</td><td data-label="Formerly known as">stucci1986903</td><td data-label="Since">2015</td><td data-label="Seasons">11</td><td data-label="Titles">1 (2016)</td></tr>
+          <tr><td data-label="Real name">Erin Fitzpatrick</td><td data-label="Handle">FitzinYa17</td><td data-label="Formerly known as">ebfitz04</td><td data-label="Since">2016</td><td data-label="Seasons">10</td><td data-label="Titles">0</td></tr>
+          <tr><td data-label="Real name">Kyle Fitzpatrick</td><td data-label="Handle">Kfitz37</td><td data-label="Formerly known as">kfitty10</td><td data-label="Since">2017</td><td data-label="Seasons">9</td><td data-label="Titles">0</td></tr>
+          <tr><td data-label="Real name">Zac Burke</td><td data-label="Handle">nastyboyart</td><td data-label="Formerly known as">—</td><td data-label="Since">2022</td><td data-label="Seasons">4</td><td data-label="Titles">1 (2022)</td></tr>
+          <tr><td data-label="Real name">Anthony Palermo</td><td data-label="Handle">PMOintensehbplant</td><td data-label="Formerly known as">—</td><td data-label="Since">2025</td><td data-label="Seasons">1</td><td data-label="Titles">1 (2025)</td></tr>
         </tbody>
       </table>
     </div>
@@ -463,15 +501,15 @@
       <table>
         <thead><tr><th>Real name</th><th>Handle</th><th>Years</th><th>Claim to fame</th></tr></thead>
         <tbody>
-          <tr><td>Walter Wofford</td><td>wofford523</td><td>2011–14</td><td>The league's first champion.</td></tr>
-          <tr><td>Preston Puryear</td><td>ppuryear1</td><td>2011–25</td><td>2013 champ, 14 seasons of service.</td></tr>
-          <tr><td>Bill Poe</td><td>nevermor</td><td>2011–25</td><td>15 seasons, the 254-point week (2018), the 49.25-point week (2025) — a man of range.</td></tr>
-          <tr><td>Daniel Brown</td><td>tigerturf</td><td>2013–21</td><td>2017 runner-up, Lane Train conductor.</td></tr>
-          <tr><td>Andrew Brannan</td><td>abrannan317</td><td>2011–16</td><td>Back-to-back 3rd place ('11, '12).</td></tr>
-          <tr><td>Alex Townsend</td><td>ALTownsend1</td><td>2013–15</td><td>.256 career win percentage. Godspeed.</td></tr>
-          <tr><td>Jack Faude</td><td>jackpfaude</td><td>2011–12</td><td>Held the all-time low week (49.58) for 14 years.</td></tr>
-          <tr><td>Charlie Poe</td><td>Cha Ching Charlie</td><td>2013</td><td>One season, made the playoffs, never seen again.</td></tr>
-          <tr><td>Scott Rabinowitz</td><td>wadelebron63</td><td>2011</td><td>Team Henne 2 Bush.</td></tr>
+          <tr><td data-label="Real name">Walter Wofford</td><td data-label="Handle">wofford523</td><td data-label="Years">2011–14</td><td data-label="Claim to fame">The league's first champion.</td></tr>
+          <tr><td data-label="Real name">Preston Puryear</td><td data-label="Handle">ppuryear1</td><td data-label="Years">2011–25</td><td data-label="Claim to fame">2013 champ, 14 seasons of service.</td></tr>
+          <tr><td data-label="Real name">Bill Poe</td><td data-label="Handle">nevermor</td><td data-label="Years">2011–25</td><td data-label="Claim to fame">15 seasons, the 254-point week (2018), the 49.25-point week (2025) — a man of range.</td></tr>
+          <tr><td data-label="Real name">Daniel Brown</td><td data-label="Handle">tigerturf</td><td data-label="Years">2013–21</td><td data-label="Claim to fame">2017 runner-up, Lane Train conductor.</td></tr>
+          <tr><td data-label="Real name">Andrew Brannan</td><td data-label="Handle">abrannan317</td><td data-label="Years">2011–16</td><td data-label="Claim to fame">Back-to-back 3rd place ('11, '12).</td></tr>
+          <tr><td data-label="Real name">Alex Townsend</td><td data-label="Handle">ALTownsend1</td><td data-label="Years">2013–15</td><td data-label="Claim to fame">.256 career win percentage. Godspeed.</td></tr>
+          <tr><td data-label="Real name">Jack Faude</td><td data-label="Handle">jackpfaude</td><td data-label="Years">2011–12</td><td data-label="Claim to fame">Held the all-time low week (49.58) for 14 years.</td></tr>
+          <tr><td data-label="Real name">Charlie Poe</td><td data-label="Handle">Cha Ching Charlie</td><td data-label="Years">2013</td><td data-label="Claim to fame">One season, made the playoffs, never seen again.</td></tr>
+          <tr><td data-label="Real name">Scott Rabinowitz</td><td data-label="Handle">wadelebron63</td><td data-label="Years">2011</td><td data-label="Claim to fame">Team Henne 2 Bush.</td></tr>
         </tbody>
       </table>
     </div>
@@ -497,15 +535,15 @@
       <table>
         <thead><tr><th>Stat</th><th>Pts</th><th>Stat</th><th>Pts</th></tr></thead>
         <tbody>
-          <tr><td>Passing yd</td><td>0.05 (1 per 20)</td><td>Rushing yd</td><td>0.1</td></tr>
-          <tr><td>Passing TD</td><td>4</td><td>Rushing TD</td><td>6</td></tr>
-          <tr><td>Interception thrown</td><td>−2</td><td>Rush attempt 🃏</td><td><strong>0.1 per carry</strong></td></tr>
-          <tr><td><strong>Completion 🃏</strong></td><td><strong>0.25 each</strong></td><td>Reception</td><td>0.5</td></tr>
-          <tr><td>300-yd passing bonus</td><td>+2</td><td>Receiving yd</td><td>0.1</td></tr>
-          <tr><td>400-yd passing bonus 🃏</td><td>+2 <em>(stacks: 400 yds = +4)</em></td><td>Receiving TD</td><td>6</td></tr>
-          <tr><td>2-pt conversion (any)</td><td>2</td><td>100-yd rush/rec bonus</td><td>+2</td></tr>
-          <tr><td>Fumble lost</td><td>−2</td><td>200-yd rush/rec bonus 🃏</td><td>+2 <em>(stacks = +4)</em></td></tr>
-          <tr><td>Fumble recovered</td><td>+2</td><td>Return yds (players) 🃏</td><td>0.04/yd, return TD 6</td></tr>
+          <tr><td data-label="Stat">Passing yd</td><td data-label="Pts">0.05 (1 per 20)</td><td data-label="Stat">Rushing yd</td><td data-label="Pts">0.1</td></tr>
+          <tr><td data-label="Stat">Passing TD</td><td data-label="Pts">4</td><td data-label="Stat">Rushing TD</td><td data-label="Pts">6</td></tr>
+          <tr><td data-label="Stat">Interception thrown</td><td data-label="Pts">−2</td><td data-label="Stat">Rush attempt 🃏</td><td data-label="Pts"><strong>0.1 per carry</strong></td></tr>
+          <tr><td data-label="Stat"><strong>Completion 🃏</strong></td><td data-label="Pts"><strong>0.25 each</strong></td><td data-label="Stat">Reception</td><td data-label="Pts">0.5</td></tr>
+          <tr><td data-label="Stat">300-yd passing bonus</td><td data-label="Pts">+2</td><td data-label="Stat">Receiving yd</td><td data-label="Pts">0.1</td></tr>
+          <tr><td data-label="Stat">400-yd passing bonus 🃏</td><td data-label="Pts">+2 <em>(stacks: 400 yds = +4)</em></td><td data-label="Stat">Receiving TD</td><td data-label="Pts">6</td></tr>
+          <tr><td data-label="Stat">2-pt conversion (any)</td><td data-label="Pts">2</td><td data-label="Stat">100-yd rush/rec bonus</td><td data-label="Pts">+2</td></tr>
+          <tr><td data-label="Stat">Fumble lost</td><td data-label="Pts">−2</td><td data-label="Stat">200-yd rush/rec bonus 🃏</td><td data-label="Pts">+2 <em>(stacks = +4)</em></td></tr>
+          <tr><td data-label="Stat">Fumble recovered</td><td data-label="Pts">+2</td><td data-label="Stat">Return yds (players) 🃏</td><td data-label="Pts">0.04/yd, return TD 6</td></tr>
         </tbody>
       </table>
     </div>
