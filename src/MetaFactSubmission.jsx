@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Send, CheckCircle, ChevronLeft, ChevronRight, Paperclip, Loader } from 'lucide-react';
 
 export default function MetaFactSubmission() {
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState(null);
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
   const [typewriterText, setTypewriterText] = useState('');
-  const [scanlineComplete, setScanlineComplete] = useState(false);
+  const [, setScanlineComplete] = useState(false);
 
   const fullText = '"In the pulp with my tinky winkies!"';
 
