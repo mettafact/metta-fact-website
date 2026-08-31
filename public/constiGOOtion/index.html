@@ -360,6 +360,10 @@
     <h2 class="section-title crt">4. The Format</h2>
     <p><strong>4.1.</strong> 12 teams. Half-PPR (0.5/catch, 4-pt passing TDs). Lineup: QB, 2 RB, 2 WR, TE, 2 FLEX, Superflex. <strong>No kickers, no defenses</strong> — we're not doing that anymore. <strong>Five bench spots</strong> (down from six, effective 2026), plus <strong>2 IR slots.</strong></p>
     <p><strong>4.1a.</strong> <strong>IR eligibility:</strong> IR is for players who are genuinely done for a stretch — <strong>Injured Reserve, Suspended, NA, and DNR/holdout/opt-out.</strong> <strong>Players listed OUT are not eligible</strong>, and neither are Doubtful. A guy who's out for Sunday is a lineup problem, not a roster-space problem; letting week-to-week designations onto IR turns it into two extra bench spots for whoever checks the app most often. When a player's designation clears, he comes off IR immediately; if there's no room, someone gets dropped.</p>
+    <p><strong>4.1b.</strong> <strong>The league median match.</strong> Every regular-season week you play <strong>two games</strong>: your scheduled head-to-head matchup, and a second game against the <strong>league median score</strong> — the average of the 6th and 7th highest scores that week. Beat the median and it's a win, miss it and it's a loss. Fourteen weeks, <strong>28 decisions</strong>, so records now read like 17-11 instead of 9-5.</p>
+    <p>This exists because a fifteen-year sample says schedule luck decides too many seasons. You can score the fourth-most points in the league and miss the playoffs because you drew the buzzsaw six times; the median game means a good week is worth something no matter who you were unlucky enough to play. It also means there's no such thing as a dead week — you're never out of both games.</p>
+    <p><strong>4.1c.</strong> <strong>Median games count for everything a real game counts for:</strong> standings, seeding, playoff qualification, tiebreakers. Regular season only — Weeks 1 through 14. Playoff and Toilet Bowl matchups in Week 15 onward are head-to-head only, no median.</p>
+    <p><strong>4.1d.</strong> The median is computed from all twelve scores as submitted. An abandoned team's bad score drags the median down for everyone, which is one more reason Section 10 exists.</p>
     <p><strong>4.2.</strong> The full scoring table — including the nonstandard stuff — lives in <strong>Appendix C</strong> and is the written record of what Sleeper should say. If Sleeper's settings ever drift from Appendix C, the appendix wins and the settings get fixed. Changing any of it requires a Draft Day Session vote (2.3), after which the appendix gets updated to match.</p>
   </section>
 
@@ -432,7 +436,7 @@
     <p><strong>9.1b.</strong> <strong>The bottom six play the Toilet Bowl.</strong> Losers advance. The team that loses its way to the bottom is crowned 💩 King and shall be addressed as such until the following season's draft.</p>
     <p><strong>9.1c.</strong> <strong>The 💩 King owes a punishment, and the league picks it fresh every year.</strong> Deciding next season's punishment is a standing item at each Draft Day Session (2.3), voted like anything else at 7 of 12. It is set <em>before</em> the season it applies to, so everyone plays the year knowing exactly what's waiting at the bottom.</p>
     <p><strong>9.1d.</strong> <strong>For 2026:</strong> the 💩 King caters the 2027 draft — food for the room, <strong>capped at $200.</strong> He is not on the hook for a dollar beyond that. If he doesn't return the following season, the obligation dies with his membership; the league doesn't chase a departed manager over draft sandwiches.</p>
-    <p><strong>9.2.</strong> <strong>Seeding ties</strong> break in this order: <strong>record → head-to-head → points for → points against.</strong> Sleeper's automatic seeding skips head-to-head, so the commissioner adjusts seeds manually when it applies. That's how this league has always done it and the platform's default doesn't get to overrule precedent. Still dead even after all four? Coin flip on a recorded video call.</p>
+    <p><strong>9.2.</strong> <strong>Seeding ties</strong> break in this order: <strong>combined record (4.1b) → head-to-head → points for → points against.</strong> Sleeper's automatic seeding skips head-to-head, so the commissioner adjusts seeds manually when it applies. That's how this league has always done it and the platform's default doesn't get to overrule precedent. Still dead even after all four? Coin flip on a recorded video call.</p>
     <p><strong>9.3.</strong> <strong>In-game playoff ties: the higher seed advances.</strong> This is Sleeper's default and there's no setting to change it. Earn the better seed.</p>
     <p><strong>9.4.</strong> Week 18 exists for the NFL, not for us. It counts for nothing and stays out of the record book.</p>
   </section>
@@ -529,12 +533,13 @@
           <tr><td>300-yd passing bonus</td><td>+2</td><td>Receiving yd</td><td>0.1</td></tr>
           <tr><td>400-yd passing bonus 🃏</td><td>+2 <em>(stacks: 400 yds = +4)</em></td><td>Receiving TD</td><td>6</td></tr>
           <tr><td>2-pt conversion (any)</td><td>2</td><td>100-yd rush/rec bonus</td><td>+2</td></tr>
-          <tr><td>Fumble lost</td><td>−2</td><td>200-yd rush/rec bonus 🃏</td><td>+2 <em>(stacks = +4)</em></td></tr>
-          <tr><td>Fumble recovered</td><td><strong>0</strong> <em>(removed 2026)</em></td><td>Return yds (players) 🃏</td><td>0.04/yd, return TD 6</td></tr>
+          <tr><td>Fumble (no loss)</td><td>0</td><td>200-yd rush/rec bonus 🃏</td><td>+2 <em>(stacks = +4)</em></td></tr>
+          <tr><td>Fumble lost</td><td>−2</td><td>Return yds (players) 🃏</td><td>0.04/yd, return TD 6</td></tr>
+          <tr><td>Fumble recovery TD</td><td>6</td><td></td><td></td></tr>
         </tbody>
       </table>
     </div>
-    <p><em>Fumble recovery was worth +2 through 2025, which meant a back who coughed it up and fell on it himself <strong>gained</strong> two points — "fumble lost" only fires when the defense recovers. Zeroed out as of 2026.</em></p>
+    <p><em>A fumble the offense recovers costs nothing; only a fumble lost to the defense does. There is no bonus for recovering your own — the +2 "fumble recovery" in Sleeper's settings sits under Team Defense and never applies, since we don't roster defenses.</em></p>
     <p><em>No kickers, no defenses.</em> Sleeper still stores K and DST scoring values in the background, but with no K or DEF slot in the lineup they never apply to anyone. If a future Draft Day Session ever votes them back in, that vote has to restate the scoring — the old numbers are not automatically revived.</p>
   </section>
 
@@ -550,6 +555,8 @@
           <tr><td>2026-08-29</td><td>Keeper declaration deadline shortened</td><td>Amends 5.7. Declarations due 48 hours before the draft rather than two weeks.</td></tr>
           <tr><td>2026-08-29</td><td>OUT players excluded from IR</td><td>Amends 4.1a. IR restricted to genuinely season-interrupting designations.</td></tr>
           <tr><td>2026-08-29</td><td>Dues escrow required to trade future picks</td><td>Adds 7.7b. Next season's $200 must be paid in advance before a future-pick trade processes.</td></tr>
+          <tr><td>2026-08-29</td><td>League median match added</td><td>Adds 4.1b–d. Every team plays a second weekly game against the league median. Regular season only.</td></tr>
+          <tr><td>2026-08-29</td><td>Fumble scoring reviewed, no change</td><td>Raised on the floor on the belief that a player gained +2 for recovering his own fumble. Verified against the live settings: the +2 is a Team Defense value and never applies. Offensive fumble scoring left as-is.</td></tr>
           <tr><td>2026-08-29</td><td>Shit Bowl punishment established</td><td>Adds 9.1c–d. Punishment set annually at the Draft Day Session; 2026's 💩 King caters the 2027 draft, capped at $200.</td></tr>
         </tbody>
       </table>
@@ -557,7 +564,7 @@
   </section>
 
   <div class="ansi-title">
-    <span class="tag crt">Adopted: August 29, 2026 · Last amended: August 29, 2026 (five floor amendments — see <a href="#appendixD" style="color:inherit;">Appendix D</a>)</span>
+    <span class="tag crt">Adopted: August 29, 2026 · Last amended: August 29, 2026 (six floor amendments — see <a href="#appendixD" style="color:inherit;">Appendix D</a>)</span>
   </div>
 
   <footer class="doc-footer">
